@@ -17,6 +17,10 @@ import {
   Truck,
   X,
 } from 'lucide-react';
+import heroImage from './logo/hero.avif';
+import logoWeb from './logo/LOGO WEB .png';
+import logoIcon from './logo/LOGO ICON.png';
+import logoAll from './logo/LOGO ALL.png';
 
 const products = [
   { title: 'Fiber', icon: Layers3, description: 'Reliable raw materials for consistent production.', items: ['Cotton', 'Polyester', 'Viscose'] },
@@ -45,9 +49,11 @@ function Logo({ compact = false, light = false }: { compact?: boolean; light?: b
     <a href="#home" className="flex items-center gap-2.5" aria-label="Texora International home">
       {!failed && (
         <img
-          src={compact ? '/logos/LOGO_ICON.png' : '/logos/LOGO_WEB_.png'}
-          alt=""
-          className={compact ? 'h-10 w-10 object-contain' : 'h-10 w-auto max-w-[178px] object-contain'}
+          src={compact ? logoIcon : logoWeb}
+          alt="Texora International"
+          className={compact
+            ? `h-10 w-10 object-contain ${light ? 'rounded bg-white p-1' : ''}`
+            : `h-11 w-auto max-w-[210px] object-contain ${light ? 'rounded-md bg-white px-2 py-1' : ''}`}
           onError={() => setFailed(true)}
         />
       )}
@@ -92,7 +98,7 @@ function Hero() {
       <div className="relative mx-auto w-full max-w-[500px] lg:ml-auto">
         <div className="absolute -right-4 top-6 h-64 w-64 rounded-full bg-[#7FBFEF]/20 blur-3xl" />
         <div className="relative rounded-[2rem] border border-white/20 bg-white/10 p-3 shadow-2xl backdrop-blur-sm">
-          <div className="relative flex min-h-[420px] items-end overflow-hidden rounded-[1.5rem] p-7 sm:min-h-[470px]"><img src="/image.png" alt="Close-up texture of blue textile fibers" className="absolute inset-0 h-full w-full object-cover" /><div className="absolute inset-0 bg-gradient-to-t from-[#071d40]/90 via-[#0B2A5B]/20 to-transparent" /><div className="relative z-10"><p className="text-sm font-semibold uppercase tracking-[.22em] text-[#7FBFEF]">Texora International</p><p className="mt-3 max-w-[260px] font-display text-3xl font-semibold leading-tight text-white">Moving materials. Building possibilities.</p></div></div>
+          <div className="relative flex min-h-[420px] items-end overflow-hidden rounded-[1.5rem] p-7 sm:min-h-[470px]"><img src={heroImage} alt="Close-up texture of blue textile fibers" className="absolute inset-0 h-full w-full object-cover" /><div className="absolute inset-0 bg-gradient-to-t from-[#071d40]/80 via-[#0B2A5B]/25 to-black/10" /><div className="relative z-10"><p className="text-sm font-semibold uppercase tracking-[.22em] text-[#7FBFEF]">Texora International</p><p className="mt-3 max-w-[260px] font-display text-3xl font-semibold leading-tight text-white">Moving materials. Building possibilities.</p></div></div>
         </div>
       </div>
     </div>
@@ -124,7 +130,7 @@ function Contact() {
 }
 
 function Footer() {
-  return <footer className="bg-[#071d40] text-white"><div className="section-shell py-10"><div className="flex flex-col gap-7 border-b border-white/10 pb-9 md:flex-row md:items-center md:justify-between"><Logo light /><div className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-blue-100/65">{[['Home', '#home'], ['About', '#about'], ['Products', '#products'], ['Contact', '#contact']].map(([label, href]) => <a key={href} href={href} className="transition hover:text-white">{label}</a>)}</div></div><div className="flex flex-col gap-8 py-8 sm:flex-row sm:items-center sm:justify-between"><div><p className="text-xs font-semibold uppercase tracking-[.2em] text-[#7FBFEF]">Our brands / partners</p><div className="mt-4 flex items-center gap-3"><img src="/logos/LOGO_ICON.png" alt="Texora brand mark" className="h-9 w-9 rounded bg-white object-contain p-1" /><img src="/logos/LOGO_ALL.png" alt="Texora International logo" className="h-9 w-auto max-w-[150px] rounded bg-white object-contain px-2" /><span className="rounded border border-white/15 px-3 py-2 text-xs font-medium text-white/60">Trusted textile network</span></div></div><div className="text-left text-sm text-blue-100/60 sm:text-right"><a href="mailto:ravi@texoraintl.com" className="block hover:text-white">ravi@texoraintl.com</a><a href="tel:+919558556868" className="mt-1 block hover:text-white">+91 95585 56868</a></div></div><div className="border-t border-white/10 pt-6 text-xs text-blue-100/45">© 2025 Texora International. All rights reserved.</div></div><a href="https://wa.me/919558556868" target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp" className="fixed bottom-5 right-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#1E4FA3] text-white shadow-xl transition hover:scale-105 md:hidden"><MessageCircle size={25} /></a></footer>;
+  return <footer className="bg-[#071d40] text-white"><div className="section-shell py-10"><div className="flex flex-col gap-7 border-b border-white/10 pb-9 md:flex-row md:items-center md:justify-between"><Logo light /><div className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-blue-100/65">{[['Home', '#home'], ['About', '#about'], ['Products', '#products'], ['Contact', '#contact']].map(([label, href]) => <a key={href} href={href} className="transition hover:text-white">{label}</a>)}</div></div><div className="flex flex-col gap-8 py-8 sm:flex-row sm:items-center sm:justify-between"><div><p className="text-xs font-semibold uppercase tracking-[.2em] text-[#7FBFEF]">Our brands / partners</p><div className="mt-4 flex items-center gap-3"><img src={logoIcon} alt="Texora brand mark" className="h-9 w-9 rounded bg-white object-contain p-1" /><img src={logoAll} alt="Texora International logo" className="h-12 w-auto max-w-[150px] rounded bg-white object-contain px-2 py-1" /><span className="rounded border border-white/15 px-3 py-2 text-xs font-medium text-white/60">Trusted textile network</span></div></div><div className="text-left text-sm text-blue-100/60 sm:text-right"><a href="mailto:ravi@texoraintl.com" className="block hover:text-white">ravi@texoraintl.com</a><a href="tel:+919558556868" className="mt-1 block hover:text-white">+91 95585 56868</a></div></div><div className="border-t border-white/10 pt-6 text-xs text-blue-100/45">© 2025 Texora International. All rights reserved.</div></div><a href="https://wa.me/919558556868" target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp" className="fixed bottom-5 right-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#1E4FA3] text-white shadow-xl transition hover:scale-105 md:hidden"><MessageCircle size={25} /></a></footer>;
 }
 
 function App() {

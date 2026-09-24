@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { font-family: 'DM Sans', sans-serif; color: #17253a; background: #f7fbff; font-synthesis: none; text-rendering: optimizeLegibility; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; }
+.font-display { font-family: 'Space Grotesk', sans-serif; }
+
+@layer components {
+  .section-shell { @apply mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12; }
+  .nav-link { @apply text-sm font-semibold text-slate-500 transition hover:text-[#1E4FA3]; }
+  .button-primary { @apply inline-flex items-center justify-center gap-2 rounded-lg bg-[#1E4FA3] px-5 py-3 text-sm font-bold text-white shadow-[0_8px_20px_rgba(30,79,163,0.18)] transition hover:-translate-y-0.5 hover:bg-[#163d82] hover:shadow-[0_10px_25px_rgba(30,79,163,0.27)]; }
+  .button-light { @apply inline-flex items-center justify-center gap-2 rounded-lg bg-white px-5 py-3.5 text-sm font-bold text-[#0B2A5B] transition hover:-translate-y-0.5 hover:bg-[#eef7ff]; }
+  .button-outline { @apply inline-flex items-center justify-center gap-2 rounded-lg border border-white/35 px-5 py-3.5 text-sm font-bold text-white transition hover:border-white hover:bg-white/10; }
+  .eyebrow { @apply inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3.5 py-2 text-xs font-bold uppercase tracking-[.17em] text-blue-100; }
+  .section-kicker { @apply text-xs font-bold uppercase tracking-[.22em] text-[#1E4FA3]; }
+  .section-title { @apply font-display text-4xl font-semibold leading-[1.12] tracking-[-.045em] text-[#0B2A5B] sm:text-5xl; }
+  .icon-box { @apply flex h-11 w-11 items-center justify-center rounded-xl bg-[#e8f3ff] text-[#1E4FA3]; }
+  .field-label { @apply text-xs font-bold uppercase tracking-[.12em] text-slate-500; }
+  .field-input { @apply mt-2 block w-full rounded-lg border border-slate-200 bg-white px-3.5 py-3 text-sm font-normal tracking-normal text-[#0B2A5B] outline-none transition placeholder:text-slate-400 focus:border-[#7FBFEF] focus:ring-4 focus:ring-[#e8f3ff]; }
+  .contact-link { @apply flex items-center gap-3 text-sm text-blue-100/80 transition hover:text-white; }
+}
+
+.hero-pattern { background: radial-gradient(circle at 83% 20%, rgba(127,191,239,.25), transparent 28%), linear-gradient(125deg, #071d40 0%, #0B2A5B 52%, #1E4FA3 100%); }
+.hero-pattern::before { content: ''; position: absolute; inset: 0; opacity: .11; background-image: linear-gradient(115deg, transparent 0 46%, rgba(255,255,255,.75) 47% 48%, transparent 49% 100%), linear-gradient(25deg, transparent 0 47%, rgba(255,255,255,.55) 48% 49%, transparent 50% 100%); background-size: 46px 46px; mask-image: linear-gradient(to bottom, black, transparent 85%); }
+.fabric-art { background: linear-gradient(135deg, rgba(127,191,239,.38), rgba(11,42,91,.2)), repeating-linear-gradient(105deg, transparent 0 16px, rgba(255,255,255,.12) 17px 19px), linear-gradient(35deg, #0b2a5b, #367fbd 65%, #94d0f6); }
+.fabric-art::after { content: ''; position: absolute; inset: 28% -10% -20% 35%; border: 25px solid rgba(255,255,255,.12); border-radius: 50%; transform: rotate(-20deg); }
+@media (max-width: 640px) { .hero-pattern::before { background-size: 30px 30px; } }
